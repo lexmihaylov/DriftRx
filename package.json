@@ -15,7 +15,7 @@
   "main": "index.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lexmihaylov/stream-store.git"
+    "url": "https://github.com/lexmihaylov/driftrx.git"
   },
   "scripts": {
     "test": "jest tests"
