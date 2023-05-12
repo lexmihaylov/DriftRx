@@ -1,0 +1,33 @@
+{
+  "name": "driftrx",
+  "version": "1.0.0",
+  "description": "DriftRx is a lightweight library for managing and observing streams of data in JavaScript and TypeScript applications. It provides a simple and intuitive API for creating and dispatching actions, registering side effects, and observing changes to data streams. With DriftRx, developers can easily implement a reactive architecture in their applications, enabling them to build more scalable, maintainable, and responsive systems. DriftRx is framework-agnostic and can be used with any modern JavaScript framework or library.",
+  "keywords": [
+    "rxjs",
+    "store",
+    "state",
+    "state management",
+    "application state",
+    "stream",
+    "data flow",
+    "data management"
+  ],
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lexmihaylov/stream-store.git"
+  },
+  "scripts": {
+    "test": "jest tests"
+  },
+  "author": "Alexander Mihaylov (https://lexmihaylov/github.io)",
+  "license": "MIT",
+  "dependencies": {
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0"
+  }
+}
