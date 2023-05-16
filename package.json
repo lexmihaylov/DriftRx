@@ -18,7 +18,7 @@
     "url": "https://github.com/lexmihaylov/driftrx.git"
   },
   "scripts": {
-    "test": "jest tests"
+    "test": "jest --silent --verbose --collect-coverage tests"
   },
   "author": "Alexander Mihaylov (https://lexmihaylov/github.io)",
   "license": "MIT",

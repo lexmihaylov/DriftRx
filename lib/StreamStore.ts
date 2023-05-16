@@ -98,10 +98,20 @@ export class StreamStore {
      * @returns {void}
      */
     createEffect<T>(actionName: string, effect: (actionData: T, store: StreamStore) => void): void {
-        this.action<T>(actionName).subscribe((data: T) => {
+        this.actions[actionName].subscribe((data: T) => {
             this.emmitStoreEvent('effectTriggered', {name: actionName});
             effect(data, this);
         });
+    }
+
+    /**
+     * Retrieves the latest data for a given action stream.
+     * @template T - The type of data associated with the action stream.
+     * @param {string} actionName - The name of the action stream to retrieve data for.
+     * @returns {T} The data associated with the specified action stream.
+     */
+    data<T>(actionName: string): T {
+        return this.storeData[actionName] as T;
     }
 
     /**

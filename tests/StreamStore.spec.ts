@@ -41,9 +41,18 @@ describe('StreamStore', () => {
             streamStore.createEffect(name, effect);
             streamStore.dispatch(name, 'newData');
 
-            expect(effect).toHaveBeenCalledTimes(2);
-            expect(effect).nthCalledWith(1, 'initialData', streamStore);
+            expect(effect).toHaveBeenCalledTimes(1);
             expect(effect).lastCalledWith('newData', streamStore);
+        });
+    });
+
+    describe('data', () => {
+        it('should get latest data from the store for a givent stream', () => {
+            const action = 'myAction';
+            streamStore.createAction(action, 'initialData');
+            expect(streamStore.data(action)).toEqual('initialData');
+            streamStore.dispatch(action, 'newData');
+            expect(streamStore.data(action)).toEqual('newData');
         });
     });
 
