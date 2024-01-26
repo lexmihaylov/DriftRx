@@ -18,6 +18,7 @@
     "url": "https://github.com/lexmihaylov/driftrx.git"
   },
   "scripts": {
+    "build": "tsc index.ts",
     "test": "jest --silent --verbose --collect-coverage tests"
   },
   "author": "Alexander Mihaylov (https://lexmihaylov/github.io)",
