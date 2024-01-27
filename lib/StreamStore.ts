@@ -8,7 +8,7 @@ declare type StreamStoreEventName = 'actionCreated' | 'actionDestroyed' | 'effec
 /**
  * An object representing the data related to a stream store event.
  */
-declare type StreamStoreEventData = {name: string, current?: any, changed?: any};
+declare type StreamStoreEventData = { name: string, current?: any, changed?: any };
 
 /**
  * An object representing a stream store event.
@@ -18,7 +18,7 @@ export interface StreamStoreEvent {
      * The type of the stream store event.
      */
     type: StreamStoreEventName;
-    
+
     /**
      * The data related to the stream store event.
      */
@@ -57,7 +57,7 @@ export class StreamStore {
      * @param data The data to set for the action stream.
      */
     private setStoreData<T>(actionName: string, data: T): void {
-        this.emmitStoreEvent('actionTriggered', {name: actionName, current: this.storeData[actionName], changed: data})
+        this.emmitStoreEvent('actionTriggered', { name: actionName, current: this.storeData[actionName], changed: data })
         this.storeData[actionName] = Object.freeze(data);
     }
 
@@ -99,7 +99,7 @@ export class StreamStore {
      */
     createEffect<T>(actionName: string, effect: (actionData: T, store: StreamStore) => void): void {
         this.actions[actionName].subscribe((data: T) => {
-            this.emmitStoreEvent('effectTriggered', {name: actionName});
+            this.emmitStoreEvent('effectTriggered', { name: actionName });
             effect(data, this);
         });
     }
@@ -128,8 +128,8 @@ export class StreamStore {
      * @param actionName The name of the action stream to dispatch data to.
      * @param payload The data to dispatch to the action stream.
      */
-    dispatch<T>(actionName: string, payload: T): void {
-        this.setStoreData<T>(actionName, payload);
+    dispatch<T>(actionName: string, payload: T | null = null): void {
+        this.setStoreData<T | null>(actionName, payload);
         this.actions[actionName].next(this.storeData[actionName]);
     }
 
@@ -142,6 +142,6 @@ export class StreamStore {
         delete this.storeData[actionName];
         delete this.actions[actionName];
 
-        this.emmitStoreEvent('actionDestroyed', {name: actionName});
+        this.emmitStoreEvent('actionDestroyed', { name: actionName });
     }
 }
