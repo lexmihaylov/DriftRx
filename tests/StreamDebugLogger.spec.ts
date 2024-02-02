@@ -10,6 +10,14 @@ describe('StreamDebugLogger', () => {
         logger = new StreamDebugLogger(streamStore);
     });
 
+    it('should use console.info to log messages', () => {
+        const message = 'message';
+        const loggerLog = jest.spyOn(logger, 'log');
+        logger.log(message);
+
+        expect(loggerLog).toHaveBeenCalledWith(message);
+    });
+
     it('should log data changes', () => {
         const actionName = 'testAction';
         const oldData = { foo: 'bar' };
