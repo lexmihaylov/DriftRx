@@ -15,12 +15,12 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lexmihaylov/driftrx.git"
+    "url": "git+https://github.com/lexmihaylov/driftrx.git"
   },
   "scripts": {
     "build": "tsc index.ts --outDir ./dist --declaration",
     "clean": "rm -rf dist",
-    "prepare": "npm run build",
+    "prepublish": "npm run build",
     "postpublish": "npm run clean",
     "test": "jest --silent --verbose --collect-coverage tests"
   },
