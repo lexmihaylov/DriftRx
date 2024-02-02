@@ -1,6 +1,6 @@
 {
   "name": "driftrx",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "DriftRx is a lightweight library for managing and observing streams of data in JavaScript and TypeScript applications. It provides a simple and intuitive API for creating and dispatching actions, registering side effects, and observing changes to data streams. With DriftRx, developers can easily implement a reactive architecture in their applications, enabling them to build more scalable, maintainable, and responsive systems. DriftRx is framework-agnostic and can be used with any modern JavaScript framework or library.",
   "keywords": [
     "rxjs",
