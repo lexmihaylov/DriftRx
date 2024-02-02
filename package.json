@@ -12,13 +12,16 @@
     "data flow",
     "data management"
   ],
-  "main": "index.ts",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/lexmihaylov/driftrx.git"
   },
   "scripts": {
-    "build": "tsc index.ts",
+    "build": "tsc index.ts --outDir ./dist --declaration",
+    "clean": "rm -rf dist",
+    "prepare": "npm run build",
+    "postpublish": "npm run clean",
     "test": "jest --silent --verbose --collect-coverage tests"
   },
   "author": "Alexander Mihaylov (https://lexmihaylov/github.io)",
