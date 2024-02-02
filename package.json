@@ -22,7 +22,7 @@
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run build",
     "postpublish": "npm run clean",
-    "test": "jest --silent --verbose --collect-coverage tests"
+    "test": "jest --silent --verbose --collect-coverage"
   },
   "author": "Alexander Mihaylov (https://lexmihaylov/github.io)",
   "license": "MIT",

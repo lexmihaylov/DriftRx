@@ -32,7 +32,7 @@ describe('StreamDebugLogger', () => {
         const actionName = 'testAction';
 
         const consoleSpy = jest.spyOn(console, 'info');
-        streamStore.createAction(actionName, {foo: 'bar'});
+        streamStore.createAction(actionName, { foo: 'bar' });
         logger.logActionCreation(actionName);
         expect(consoleSpy).toHaveBeenCalledWith(`[${actionName}] action created`);
     });
@@ -51,7 +51,7 @@ describe('StreamDebugLogger', () => {
         const actionName = 'testAction';
         streamStore.createAction(actionName, null);
         const consoleSpy = jest.spyOn(console, 'info');
-        streamStore.createEffect(actionName, () => {});
+        streamStore.createEffect(actionName, () => { });
         streamStore.dispatch(actionName, null);
         logger.logEffect(actionName);
         expect(consoleSpy).toHaveBeenCalledWith(`[${actionName}] effect triggered`);
