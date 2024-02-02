@@ -20,7 +20,7 @@
   "scripts": {
     "build": "tsc index.ts --outDir ./dist --declaration",
     "clean": "rm -rf dist",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "postpublish": "npm run clean",
     "test": "jest --silent --verbose --collect-coverage tests"
   },
