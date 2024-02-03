@@ -79,6 +79,20 @@ export class StreamHistory {
     }
 
     /**
+     * Restores the state of the StreamStore to a previous snapshot identified by the given index.
+     * @param {number} index - The index of the desired snapshot to restore.
+     * @throws {Error} Throws an error if the index is out of bounds, meaning there is no snapshot at the specified index.
+     */
+    restoreIndex(index: number) {
+        const snapshot = this.getSnapshotByIndex(index);
+        if (!snapshot) {
+            throw new Error('Index out of bounds.')
+        }
+
+        Object.keys(snapshot).forEach((action) => this.streamStore.dispatch(action, snapshot[action]));
+    }
+
+    /**
      * Destroys the stream history by clearing snapshots and unsubscribing from events.
      */
     destroy() {
