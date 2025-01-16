@@ -36,11 +36,12 @@ export class StreamHistory {
                         [event.data.name]: event.data.changed
                     });
                     break;
-                case 'actionDestroyed':
+                case 'actionDestroyed': {
                     const newSnapshot = { ...currentSnapshot };
                     delete newSnapshot[event.data.name];
                     this.snapshots.push(newSnapshot);
                     break;
+                }
             }
         })
     }
